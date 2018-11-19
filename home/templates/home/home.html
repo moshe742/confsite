@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    <h2>speaker info</h2>
+    <form action="home.html" method="post">
+        <div class="row">
+            {{ speaker_form.name.label_tag }}
+            {{ speaker_form.name }}
+        </div>
+        <div class="row">
+            {{ speaker_form.bio.label_tag }}
+            {{ speaker_form.bio }}
+        </div>
+        <button>send</button>
+        <input type="reset" class="clear">
+    </form>
+{% endblock %}

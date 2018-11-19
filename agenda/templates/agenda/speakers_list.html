@@ -1,0 +1,10 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    {% for speaker in speaker_list %}
+        <div class="row">
+            <h3>{{ speaker.name }}</h3>
+            <img src="{{ MEDIA_URL }}{{ speaker.picture }}" alt="{{ speaker.name }} image" width="100" height="100">
+            <p>{{ speaker.bio }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

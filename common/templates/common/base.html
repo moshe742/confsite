@@ -1,0 +1,45 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pycon Israel 2019 | {{ title }}</title>
+    <link rel="stylesheet" href="{% static 'common/css/common.css' %}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <img class="logo" src="{% static 'common/images/logo.png' %}" alt="logo of pycon israel" height="100">
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">{% trans 'home' %}</a></li>
+                <li><a href="">{% trans 'agenda' %}</a></li>
+                <li><a href="{% url 'speakers_list' %}">{% trans 'speakers' %}</a></li>
+                <li><a href="{% url 'sponsors_list' %}">{% trans 'sponsors' %}</a></li>
+                <li><a href="">{% trans 'blog' %}</a></li>
+                <li><a href="">{% trans 'map' %}</a></li>
+                <li><a href="">{% trans 'code of conduct' %}</a></li>
+                <li><a href="">עברית</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="">{% trans 'contact' %}</a></li>
+                <li><a href="">{% trans 'agenda' %}</a></li>
+                <li><a href="">{% trans 'speakers' %}</a></li>
+                <li><a href="">{% trans 'blog' %}</a></li>
+                <li><a href="">{% trans 'map' %}</a></li>
+                <li><a href="">{% trans 'code of conduct' %}</a></li>
+            </ul>
+        </nav>
+    </footer>
+</div>
+</body>
+</html>
