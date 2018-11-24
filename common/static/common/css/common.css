@@ -565,7 +565,7 @@ label {
     width: 100px;
 }
 
-input, textarea {
+input, textarea, select {
     background: beige;
     border: darkgrey 1px solid;
     border-radius: 4px;

@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.models import User
+
 from agenda.models import Presentation, ContactInfoType, ContactInfo, Speaker, Track
 
 
@@ -12,8 +15,8 @@ class ContactInfoTypeAdmin(admin.ModelAdmin):
 
 
 class SpeakerAdmin(admin.ModelAdmin):
-    list_display = ['name', 'is_keynote']
-    list_filter = ['name', 'is_keynote']
+    list_display = ['user', 'is_keynote']
+    list_filter = ['user', 'is_keynote']
 
 
 class ContactInfoAdmin(admin.ModelAdmin):

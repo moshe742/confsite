@@ -1,14 +1,20 @@
 {% extends 'common/base.html' %}
 {% block content %}
     <h2>speaker info</h2>
-    <form action="home.html" method="post">
-        <div class="row">
-            {{ speaker_form.name.label_tag }}
-            {{ speaker_form.name }}
-        </div>
+    <form action="{% url 'home' %}" method="post">{% csrf_token %}
+        {{ contact_info_form.speaker }}
+        {{ speaker_form.user }}
         <div class="row">
             {{ speaker_form.bio.label_tag }}
             {{ speaker_form.bio }}
+        </div>
+        <div class="row">
+            {{ presentation_form.title.label_tag }}
+            {{ presentation_form.title }}
+        </div>
+        <div class="row">
+            {{ presentation_form.abstract.label_tag }}
+            {{ presentation_form.abstract }}
         </div>
         <button>send</button>
         <input type="reset" class="clear">

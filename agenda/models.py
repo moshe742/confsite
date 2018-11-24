@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from django.contrib.auth.models import User
 
 from common.models import Base
 
@@ -45,14 +46,14 @@ class ContactInfoType(Base):
 
 
 class Speaker(Base):
-    name = models.CharField(_('name'), max_length=200)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_keynote = models.BooleanField(_('is keynote'), default=False)
     sessions = models.ManyToManyField(Presentation, related_name='speakers')
     bio = models.TextField(_('short bio'))
     picture = models.ImageField(_('picture'), null=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.user.first_name} {self.user.last_name}'
 
     class Meta:
         verbose_name = 'Speaker'
