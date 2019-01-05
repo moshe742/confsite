@@ -21,6 +21,15 @@
                 <li><a href="">{% trans 'map' %}</a></li>
                 <li><a href="">{% trans 'code of conduct' %}</a></li>
                 <li><a href="">עברית</a></li>
+            {% spaceless %}
+                {% if user.is_authenticated %}
+                    <li id="my_account"><a href="{% url 'my_account' %}">my account</a></li>
+                    <li><a href="{% url 'logout' %}">logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">login</a></li>
+                    <li><a href="{% url 'signup' %}">signup</a></li>
+                {% endif %}
+            {% endspaceless %}
             </ul>
         </nav>
     </header>

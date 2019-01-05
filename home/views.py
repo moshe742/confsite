@@ -3,24 +3,13 @@ from django.views.generic import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-from home.forms import SpeakerForm, PresentationForm
-from agenda.models import Speaker, Presentation
+from agenda.forms import SpeakerForm, PresentationForm
+from agenda.models import Speaker
 
 
-@method_decorator(login_required, name='dispatch')
 class Home(View):
     def get(self, request):
-        user = request.user
-        if Speaker.objects.filter(user=user).exists():
-            return render(request, 'home/home.html', context={
-                'title': 'home',
-                'presentation_form': PresentationForm
-            })
-        speaker_form = SpeakerForm(initial={'user': request.user})
-        return render(request, 'home/home.html', context={'title': 'home',
-                                                          'speaker_form': speaker_form,
-                                                          'presentation_form': PresentationForm,
-                                                          })
+        return render(request, 'home/home.html')
 
     def post(self, request):
         data = request.POST

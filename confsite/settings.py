@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'common',
+    'accounts',
     'home',
     'agenda',
     'blog',
@@ -127,3 +128,6 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads/')
 MEDIA_URL = '/media/'
+
+LOGOUT_REDIRECT_URL = 'home'
+DEFAULT_FROM_EMAIL = 'no-replay@moshe742.name'
